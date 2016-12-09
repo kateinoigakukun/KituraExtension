@@ -16,7 +16,7 @@ precedencegroup Base {
 }
 
 
-infix operator / : Base
+infix operator / : MultiplicationPrecedence
 infix operator == : Base
 
 public func ==(lhs: MappingValue, rls: String) -> Bool {
