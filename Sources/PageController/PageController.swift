@@ -14,5 +14,14 @@ protocol PageController {
 
     init(mappnig: Routing)
 
-    func createView() -> String
+    var viewName: String { get }
+    var context: [String: Any] {get}
+}
+
+extension PageController {
+    var viewName: String {
+        let className =  String(describing: type(of: self))
+        let viewName = className.replacingOccurrences(of: "Controller", with: "")
+        return viewName.lowercased()
+    }
 }

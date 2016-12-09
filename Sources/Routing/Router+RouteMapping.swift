@@ -10,7 +10,8 @@ import Foundation
 import Kitura
 
 extension Router {
-    func get<T: RouteMapping>(_ routing: T.Type, handler: @escaping (T, RouterResponse, @escaping () -> Void) -> Void) {
+    func get<T: RouteMapping>(_ routing: T.Type,
+             handler: @escaping (T, RouterResponse, @escaping () -> Void) throws -> Void) {
 
         self.get(routing.format.description) { request, response, next in
             if !routing.format.is(request.urlComponents.url!) { return }
@@ -18,7 +19,7 @@ extension Router {
             let query = request.queryParameters
             let result = routing.init(matched: parameters, query: query)
 
-            handler(result, response, next)
+            try handler(result, response, next)
         }
     }
 }
