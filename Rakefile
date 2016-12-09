@@ -1,7 +1,7 @@
 task :init do
-  check_dir 'Sources/PageController'
-  check_dir 'Sources/Routing'
-  check_dir 'Sources/Views'
+  check_dir 'Sources/PageController', 'MainController.swift'
+  check_dir 'Sources/Routing', 'MainRouting.swift'
+  check_dir 'Sources/Views', 'MainView.swift'
   check_dir 'Sources/Views/html'
 end
 
