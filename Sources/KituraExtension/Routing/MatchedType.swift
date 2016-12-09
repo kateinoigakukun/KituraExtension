@@ -20,7 +20,7 @@ public enum MatchedType {
             return s
         }
     }
-    func result<T>() -> T {
+    public func result<T>() -> T {
         guard let result = self.value as? T else {
             fatalError("\(self) is not \(T.self)")
         }

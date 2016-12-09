@@ -10,49 +10,49 @@ import Foundation
 
 public class MappingFormat {
     
-    var pattern: [MappingValue] = []
+    public var pattern: [MappingValue] = []
 
-    init(first: String, second: String) {
+    public init(first: String, second: String) {
 
         self.pattern.append(contentsOf: [.string(first), .string(second)])
     }
 
-    init(first: String, second: MappingValue) {
+    public init(first: String, second: MappingValue) {
         self.pattern.append(.string(first))
         self.pattern.append(second)
     }
 
-    init(first: MappingValue, second: String) {
+    public init(first: MappingValue, second: String) {
         self.pattern.append(first)
         self.pattern.append(.string(second))
     }
 
-    init(first: MappingValue, second: MappingValue) {
+    public init(first: MappingValue, second: MappingValue) {
         self.pattern.append(first)
         self.pattern.append(second)
     }
 
 
-    func add(_ value: MappingValue) {
+    public func add(_ value: MappingValue) {
         self.pattern.append(value)
     }
 
-    func `is`(_ url: URL) -> Bool {
+    public func `is`(_ url: URL) -> Bool {
         return self.is(pathComponent: url.pathComponents)
     }
 
-    func `is`(pathComponent: [String]) -> Bool {
+    public func `is`(pathComponent: [String]) -> Bool {
         var pathComponent = pathComponent
         pathComponent.remove(at: 0)
 
         return zip(pattern, pathComponent).filter(!==).isEmpty
     }
 
-    func match(_ url: URL) -> [MatchedType] {
+    public func match(_ url: URL) -> [MatchedType] {
         return self.match(pathComponent: url.pathComponents)
     }
 
-    func match(pathComponent: [String]) -> [MatchedType] {
+    public func match(pathComponent: [String]) -> [MatchedType] {
         if !self.is(pathComponent: pathComponent) {
             return []
         }
@@ -75,7 +75,7 @@ public class MappingFormat {
 }
 
 extension MappingFormat: CustomStringConvertible {
-    var description: String {
+    public var description: String {
         return self.pattern.enumerated().reduce("") {
             switch $1.element {
             case .intType, .stringType:
