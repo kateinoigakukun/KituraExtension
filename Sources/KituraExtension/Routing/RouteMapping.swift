@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol RouteMapping {
+public protocol RouteMapping {
     static var format: MappingFormat {get}
     init(matched: [MatchedType], query: [String:String])
 }

@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum MatchedType {
+public enum MatchedType {
     case string(String)
     case int(Int)
 

@@ -9,7 +9,7 @@
 import Foundation
 import Kitura
 
-extension Router {
+public extension Router {
     func get<T: PageController>(controller: T.Type) {
 
         self.get(T.Routing.self) { result, response, next in

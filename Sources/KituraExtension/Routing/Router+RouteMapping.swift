@@ -9,7 +9,7 @@
 import Foundation
 import Kitura
 
-extension Router {
+public extension Router {
     func get<T: RouteMapping>(_ routing: T.Type,
              handler: @escaping (T, RouterResponse, @escaping () -> Void) throws -> Void) {
 

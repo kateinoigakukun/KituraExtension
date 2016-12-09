@@ -7,9 +7,8 @@
 //
 
 import Foundation
-import Kitura
 
-protocol PageController {
+public protocol PageController {
     associatedtype Routing: RouteMapping
 
     init(mappnig: Routing)
@@ -18,7 +17,7 @@ protocol PageController {
     var context: [String: Any] {get}
 }
 
-extension PageController {
+public extension PageController {
     var viewName: String {
         let className =  String(describing: type(of: self))
         let viewName = className.replacingOccurrences(of: "Controller", with: "")

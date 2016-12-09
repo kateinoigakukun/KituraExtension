@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum MappingValue {
+public enum MappingValue {
     case intType
     case stringType
     case string(String)

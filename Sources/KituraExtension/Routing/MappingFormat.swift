@@ -8,8 +8,8 @@
 
 import Foundation
 
-class MappingFormat {
-
+public class MappingFormat {
+    
     var pattern: [MappingValue] = []
 
     init(first: String, second: String) {
