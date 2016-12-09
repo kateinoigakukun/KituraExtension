@@ -13,4 +13,6 @@ protocol PageController {
     associatedtype Routing: RouteMapping
 
     init(mappnig: Routing)
+
+    func createView() -> String
 }
