@@ -9,7 +9,7 @@ task :haml do
   compiled_path = 'Sources/Views/html'
   check_dir compiled_path
   Dir.glob('Sources/Views/*.haml').each do |file|
-    `haml #{file} #{file.gsub(/\.haml/,".html").gsub(/Views/,"Views/html")}`
+    `haml #{file} #{file.gsub(/\.haml/,".mustache").gsub(/Views/,"Views/html")}`
   end
 
 end

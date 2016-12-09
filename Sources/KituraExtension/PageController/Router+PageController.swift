@@ -16,7 +16,7 @@ public extension Router {
 
             response.status(.OK)
             let controller = controller.init(mappnig: result)
-            try response.render(controller.viewName, context: controller.context)
+            try response.render(controller.viewName, context: controller.context).end()
         }
     }
 }
