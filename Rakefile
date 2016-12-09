@@ -14,6 +14,9 @@ task :haml do
 
 end
 
-def check_dir path
-    FileUtils.mkdir_p(path) unless FileTest.exist?(path)
+def check_dir(path, default_file=nil)
+    return if FileTest.exist?(path)
+    FileUtils.mkdir_p(path)
+    return if default_file.nil?
+    `touch #{path}/#{default_file}`
 end
