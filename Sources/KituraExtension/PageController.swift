@@ -11,7 +11,7 @@ import Foundation
 public protocol PageController {
     associatedtype Routing: RouteMapping
 
-    init(mappnig: Routing)
+    init(mappnig: Routing) throws
 
     var viewName: String { get }
     var context: [String: Any] {get}
